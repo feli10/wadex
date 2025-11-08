@@ -1,0 +1,110 @@
+/* --- NAVBAR --- */
+.navbar {
+  background-color: #4a6489;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.logo .accent {
+  color: #d0e1ff;
+}
+
+.nav-links a {
+  margin-left: 2rem;
+  color: #e8f0ff;
+  font-weight: 500;
+}
+
+.nav-links a.active {
+  border-bottom: 2px solid #e8f0ff;
+}
+
+/* --- MAIN DASHBOARD --- */
+.dashboard {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.waste-card {
+  background-color: #142b4f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  gap: 1.5rem;
+}
+
+.bin-status {
+  width: 90px;
+  height: 90px;
+  background-color: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bin-status::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%; /* filled level */
+  background-color: var(--fill-color, #fff);
+  z-index: 1;
+}
+
+.fill-text {
+  position: relative;
+  z-index: 2;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.bin-details {
+  flex-grow: 1;
+}
+
+.bin-details p {
+  font-size: 0.9rem;
+  color: #d6e1f2;
+}
+
+.details-btn {
+  background: none;
+  color: white;
+  font-size: 2rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.details-btn:hover {
+  background-color: white;
+  color: #142b4f;
+}
+
+/* --- FOOTER --- */
+.footer {
+  text-align: center;
+  background-color: #4a6489;
+  padding: 0.8rem;
+  font-size: 0.8rem;
+  color: #e8f0ff;
+}
