@@ -9,13 +9,15 @@
 </head>
 <body>
   <header class="navbar">
-    <div class="logo">WADE<span class="accent">x</span></div>
-    <nav class="nav-links">
-      <a href="#" class="active">Dashboard</a>
-      <a href="#">Database</a>
-      <a href="#">Manual</a>
-      <a href="#">Account</a>
-    </nav>
+    <div class="navbar-container">
+      <div class="logo">WADEx</div>
+      <nav class="nav-links">
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">Database</a>
+        <a href="#">About</a>
+        <a href="#">Account</a>
+      </nav>
+    </div>
   </header>
 
   <main class="dashboard">
@@ -24,9 +26,11 @@
         <div class="fill-text">50%</div>
       </div>
       <div class="bin-details">
-        <h2>Waste Bin 1</h2>
+        <h3>Waste Bin 1</h3>
         <p>Status: <span>Powered</span></p>
         <p>Location: Central Chemical Analysis Facility</p>
+        <p>Last Used: 5 hours ago</p>
+        <p>Last emptied: 8 days ago</p>
         <p>Temperature: 62 °C</p>
         <p>CO₂ Concentration: 3400 ppm</p>
         <p>Alerts: [Reactive Chemicals]</p>
@@ -36,22 +40,41 @@
 
     <section class="waste-card">
       <div class="bin-status" style="--fill-color:#5FE0A6;">
-        <div class="fill-text">25%</div>
+        <div class="fill-text">50%</div>
       </div>
       <div class="bin-details">
-        <h2>Waste Bin 2</h2>
+        <h3>Waste Bin 2</h3>
         <p>Status: <span>Powered</span></p>
         <p>Location: Central Chemical Analysis Facility</p>
-        <p>Temperature: 52 °C</p>
-        <p>CO₂ Concentration: 6700 ppm</p>
-        <p>Alerts: [High Pressure]</p>
+        <p>Last Used: 5 hours ago</p>
+        <p>Last emptied: 8 days ago</p>
+        <p>Temperature: 62 °C</p>
+        <p>CO₂ Concentration: 3400 ppm</p>
+        <p>Alerts: [Reactive Chemicals]</p>
+      </div>
+      <button class="details-btn">➜</button>
+    </section>
+
+    <section class="waste-card">
+      <div class="bin-status" style="--fill-color:#5f88e0;">
+        <div class="fill-text">50%</div>
+      </div>
+      <div class="bin-details">
+        <h3>Waste Bin 3</h3>
+        <p>Status: <span>Powered</span></p>
+        <p>Location: Central Chemical Analysis Facility</p>
+        <p>Last Used: 5 hours ago</p>
+        <p>Last emptied: 8 days ago</p>
+        <p>Temperature: 62 °C</p>
+        <p>CO₂ Concentration: 3400 ppm</p>
+        <p>Alerts: [Reactive Chemicals]</p>
       </div>
       <button class="details-btn">➜</button>
     </section>
   </main>
 
   <footer class="footer">
-    © 2025 WADEᵡ. All rights reserved.
+    © 2025 WADEx. All rights reserved.
   </footer>
 
   <script src="assets/js/dashboard.js"></script>

@@ -10,12 +10,25 @@ body {
   color: #fff;
 }
 
+html, body {
+  height: 100%;               /* make the full page fill the viewport */
+}
+
+body {
+  display: flex;              /* enable flex layout */
+  flex-direction: column;     /* stack children vertically */
+  min-height: 100vh;          /* ensure body covers full screen height */
+}
+
+main {
+  flex: 1;                    /* take up remaining space between header & footer */
+}
+
 a {
   text-decoration: none;
   color: inherit;
 }
 
-h2 {
-  font-size: 1.1rem;
+h3 {
   margin-bottom: 0.3rem;
 }

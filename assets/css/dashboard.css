@@ -1,18 +1,23 @@
 /* --- NAVBAR --- */
 .navbar {
+  position: sticky;
+  top: 0;
   background-color: #4a6489;
+  padding: 1rem 2rem;
+  z-index: 100;
+}
+
+.navbar-container {
+  max-width: 1200px;       /* ✅ set your desired max width */
+  margin: 0 auto;          /* ✅ center horizontally */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
 }
 
 .logo {
   font-weight: 700;
   font-size: 1.5rem;
-}
-.logo .accent {
-  color: #d0e1ff;
 }
 
 .nav-links a {
@@ -31,6 +36,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  align-items: center;
 }
 
 .waste-card {
@@ -41,12 +47,14 @@
   padding: 1.5rem 2rem;
   border-radius: 10px;
   gap: 1.5rem;
+  width: 100%;
+  max-width: 800px;
 }
 
 .bin-status {
-  width: 90px;
-  height: 90px;
-  background-color: rgba(255, 255, 255, 0.05);
+  width: 100px;
+  height: 120px;
+  background-color: black;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -69,7 +77,7 @@
 .fill-text {
   position: relative;
   z-index: 2;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #000;
 }
@@ -79,14 +87,14 @@
 }
 
 .bin-details p {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #d6e1f2;
 }
 
 .details-btn {
   background: none;
   color: white;
-  font-size: 2rem;
+  font-size: 1.8rem;
   border: 2px solid white;
   border-radius: 50%;
   width: 50px;
