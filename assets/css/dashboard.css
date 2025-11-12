@@ -1,35 +1,3 @@
-/* --- NAVBAR --- */
-.navbar {
-  position: sticky;
-  top: 0;
-  background-color: #4a6489;
-  padding: 1rem 2rem;
-  z-index: 100;
-}
-
-.navbar-container {
-  max-width: 1200px;       /* ✅ set your desired max width */
-  margin: 0 auto;          /* ✅ center horizontally */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-weight: 700;
-  font-size: 1.5rem;
-}
-
-.nav-links a {
-  margin-left: 2rem;
-  color: #e8f0ff;
-  font-weight: 500;
-}
-
-.nav-links a.active {
-  border-bottom: 2px solid #e8f0ff;
-}
-
 /* --- MAIN DASHBOARD --- */
 .dashboard {
   padding: 2rem;
@@ -108,11 +76,3 @@
   color: #142b4f;
 }
 
-/* --- FOOTER --- */
-.footer {
-  text-align: center;
-  background-color: #4a6489;
-  padding: 0.8rem;
-  font-size: 0.8rem;
-  color: #e8f0ff;
-}
