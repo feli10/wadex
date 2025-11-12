@@ -1,0 +1,29 @@
+/* --- LOGIN BUTTON --- */
+.login-btn {
+  background-color: #4a6489; /* matches navbar/footer tone */
+  color: #e8f0ff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #4a6489;
+  border-radius: 10px; /* matches dashboard cards */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.login-btn:hover {
+  background-color: #e8f0ff;
+  color: #4a6489;
+  border-color: #e8f0ff;
+}
+
+.login-btn:active {
+  transform: scale(0.98);
+}
+
+main {
+  display: flex;              /* enable flexbox */
+  justify-content: center;    /* center horizontally */
+  align-items: center;        /* center vertically */
+}
