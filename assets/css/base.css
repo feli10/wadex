@@ -1,3 +1,32 @@
+/* --- COLOR PALETTE --- */
+:root {
+  /* Primary Colors */
+  --color-dark-bg: #0e0e0e;
+  --color-dark-card: #142b4f;
+  --color-dark-secondary: #1a3a5c;
+  --color-dark-tertiary: #0f1f38;
+  --color-dark-border: #2a4a7c;
+  
+  /* Accent Colors */
+  --color-primary: #5f88e0;
+  --color-primary-hover: #4a6fa0;
+  --color-accent-orange: #e6aa94;
+  --color-accent-orange-hover: #d4956d;
+  --color-accent-green: #5FE0A6;
+  --color-accent-green-hover: #4ac290;
+  --color-danger: #e74c3c;
+  --color-danger-hover: #c0392b;
+  
+  /* Text Colors */
+  --color-text-light: #e8f0ff;
+  --color-text-primary: #d6e1f2;
+  --color-text-secondary: #a0b0d4;
+  --color-text-muted: #7a8fba;
+  
+  /* Navbar & Footer */
+  --color-nav-bg: #4a6489;
+}
+
 /* --- RESET --- */
 * {
   margin: 0;
@@ -16,7 +45,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #0e0e0e;
+  background-color: var(--color-dark-bg);
   color: #fff;
 }
 
@@ -29,7 +58,7 @@ main {
 .navbar {
   position: sticky;
   top: 0;
-  background-color: #4a6489;
+  background-color: var(--color-nav-bg);
   padding: 1rem 2rem;
   z-index: 100;
 }
@@ -48,13 +77,13 @@ main {
 }
 
 .nav-links a {
-  margin-left: 2rem;
-  color: #e8f0ff;
+  margin-left: 4rem;
+  color: var(--color-text-light);
   font-weight: 500;
 }
 
 .nav-links a.active {
-  border-bottom: 2px solid #e8f0ff;
+  border-bottom: 2px solid var(--color-text-light);
 }
 
 a {
@@ -69,8 +98,8 @@ h3 {
 /* --- FOOTER --- */
 .footer {
   text-align: center;
-  background-color: #4a6489;
+  background-color: var(--color-nav-bg);
   padding: 0.8rem;
   font-size: 0.8rem;
-  color: #e8f0ff;
+  color: var(--color-text-light);
 }

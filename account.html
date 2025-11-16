@@ -20,8 +20,136 @@
     </div>
   </header>
 
-  <main>
+  <main class="account-container">
+    <!-- User Profile Section -->
+    <section class="profile-section">
+      <div class="profile-header">
+        <div class="avatar">👤</div>
+        <div class="profile-info">
+          <h2>John Doe</h2>
+          <p class="role">Facility Manager</p>
+          <p class="email">john.doe@wadex.com</p>
+        </div>
+      </div>
+      <div class="profile-stats">
+        <div class="stat">
+          <span class="stat-label">Member Since</span>
+          <span class="stat-value">Jan 15, 2024</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Last Login</span>
+          <span class="stat-value">Nov 16, 2025</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Status</span>
+          <span class="stat-value active">Active</span>
+        </div>
+      </div>
+    </section>
 
+    <!-- Account Settings Section -->
+    <section class="settings-section">
+      <h3>Account Settings</h3>
+      <div class="settings-grid">
+        <div class="setting-item">
+          <label>Email Address</label>
+          <input type="email" value="john.doe@wadex.com" />
+          <button class="btn-secondary">Update</button>
+        </div>
+        <div class="setting-item">
+          <label>Phone Number</label>
+          <input type="tel" value="+1 (555) 123-4567" />
+          <button class="btn-secondary">Update</button>
+        </div>
+        <div class="setting-item">
+          <label>Change Password</label>
+          <input type="password" placeholder="Current Password" />
+          <input type="password" placeholder="New Password" />
+          <button class="btn-secondary">Update</button>
+        </div>
+        <div class="setting-item">
+          <label>Notifications</label>
+          <select>
+            <option>All Alerts</option>
+            <option>Critical Only</option>
+            <option>Disabled</option>
+          </select>
+          <button class="btn-secondary">Save</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Access & Permissions Section -->
+    <section class="access-section">
+      <h3>Access & Permissions</h3>
+      <div class="access-info">
+        <div class="access-item">
+          <span class="access-label">Assigned Facility</span>
+          <span class="access-value">Central Chemical Analysis Facility</span>
+        </div>
+        <div class="access-item">
+          <span class="access-label">Permission Level</span>
+          <span class="access-value">Manager</span>
+        </div>
+        <div class="access-item">
+          <span class="access-label">Bin Access</span>
+          <span class="access-value">3 out of 5 bins</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security-section">
+      <h3>Security</h3>
+      <div class="security-items">
+        <div class="security-item">
+          <div class="security-item-header">
+            <span>Two-Factor Authentication</span>
+            <span class="status-badge enabled">Enabled</span>
+          </div>
+        </div>
+        <div class="security-item">
+          <div class="security-item-header">
+            <span>Last Password Change</span>
+            <span class="status-value">30 days ago</span>
+          </div>
+        </div>
+        <div class="security-item">
+          <div class="security-item-header">
+            <span>Active Sessions</span>
+            <span class="status-value">2</span>
+          </div>
+          <button class="btn-secondary">View & Manage</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Danger Zone Section -->
+    <section class="danger-section">
+      <h3>Danger Zone</h3>
+      <div class="danger-items">
+        <div class="danger-item">
+          <div class="danger-item-text">
+            <p>Download Account Data</p>
+            <small>Export all your account information</small>
+          </div>
+          <button class="btn-danger-secondary">Download</button>
+        </div>
+        <div class="danger-item">
+          <div class="danger-item-text">
+            <p>Delete Account</p>
+            <small>Permanently delete your account and all data</small>
+          </div>
+          <button class="btn-danger">Delete</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="btn-primary">Save Changes</button>
+      <button class="btn-secondary">Log Out</button>
+    </div>
   </main>
 
   <footer class="footer">

@@ -6,6 +6,11 @@
   <title>Database</title>
   <link rel="stylesheet" href="assets/css/base.css" />
   <link rel="stylesheet" href="assets/css/database.css" />
+  <!-- React and ReactDOM -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <!-- Babel for JSX support -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
   <header class="navbar">
@@ -20,14 +25,302 @@
     </div>
   </header>
 
-  <main>
+  <main class="database-container">
+    <div class="database-header">
+      <h1>Chemical Waste Database</h1>
+      <p class="subtitle">All chemical waste records and inventory</p>
+    </div>
 
+    <div class="controls-section">
+      <div class="search-bar">
+        <input type="text" placeholder="Search by chemical, user, or bin..." />
+        <button class="btn-search">🔍</button>
+      </div>
+      <div class="filter-controls">
+        <select class="filter-select">
+          <option>All Bins</option>
+          <option>Bin 1</option>
+          <option>Bin 2</option>
+          <option>Bin 3</option>
+        </select>
+        <select class="filter-select">
+          <option>All Status</option>
+          <option>Stored</option>
+          <option>Processing</option>
+          <option>Cleaned</option>
+        </select>
+        <button class="btn-export">📥 Export</button>
+        <button class="btn-add" onclick="openRecordModal()">+ Add Record</button>
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Bin</th>
+            <th>User</th>
+            <th>Chemicals</th>
+            <th>Mass (kg)</th>
+            <th>Volume (L)</th>
+            <th>Status</th>
+            <th>Alerts</th>
+            <th>Notes</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2025-11-16 14:32</td>
+            <td>Bin 1</td>
+            <td>John Doe</td>
+            <td>Acetone, IPA</td>
+            <td>2.5</td>
+            <td>3.2</td>
+            <td><span class="status stored">Stored</span></td>
+            <td><span class="alert-badge">None</span></td>
+            <td>Mixed solvents</td>
+            <td class="action-cell"><button class="btn-edit" onclick="editRecord(this)">✏️</button><button class="btn-delete" onclick="deleteRecord(this)">🗑️</button></td>
+          </tr>
+          <tr>
+            <td>2025-11-16 13:45</td>
+            <td>Bin 2</td>
+            <td>Sarah Smith</td>
+            <td>Sodium Hydroxide</td>
+            <td>5.0</td>
+            <td>2.1</td>
+            <td><span class="status processing">Processing</span></td>
+            <td><span class="alert-badge warning">Reactive</span></td>
+            <td>Batch #2401</td>
+            <td class="action-cell"><button class="btn-edit" onclick="editRecord(this)">✏️</button><button class="btn-delete" onclick="deleteRecord(this)">🗑️</button></td>
+          </tr>
+          <tr>
+            <td>2025-11-16 12:10</td>
+            <td>Bin 3</td>
+            <td>Mike Johnson</td>
+            <td>Sulfuric Acid</td>
+            <td>3.2</td>
+            <td>1.8</td>
+            <td><span class="status processing">Processing</span></td>
+            <td><span class="alert-badge critical">Corrosive</span></td>
+            <td>Lab analysis waste</td>
+            <td class="action-cell"><button class="btn-edit" onclick="editRecord(this)">✏️</button><button class="btn-delete" onclick="deleteRecord(this)">🗑️</button></td>
+          </tr>
+          <tr>
+            <td>2025-11-16 10:22</td>
+            <td>Bin 1</td>
+            <td>Emily Davis</td>
+            <td>Ethanol, Water</td>
+            <td>1.8</td>
+            <td>2.5</td>
+            <td><span class="status cleaned">Cleaned</span></td>
+            <td><span class="alert-badge">None</span></td>
+            <td>Dilute solution</td>
+            <td class="action-cell"><button class="btn-edit" onclick="editRecord(this)">✏️</button><button class="btn-delete" onclick="deleteRecord(this)">🗑️</button></td>
+          </tr>
+          <tr>
+            <td>2025-11-16 09:15</td>
+            <td>Bin 2</td>
+            <td>John Doe</td>
+            <td>Acetone, Methanol</td>
+            <td>2.2</td>
+            <td>2.8</td>
+            <td><span class="status stored">Stored</span></td>
+            <td><span class="alert-badge warning">Flammable</span></td>
+            <td>Equipment cleaning</td>
+            <td class="action-cell"><button class="btn-edit" onclick="editRecord(this)">✏️</button><button class="btn-delete" onclick="deleteRecord(this)">🗑️</button></td>
+          </tr>
+          <tr>
+            <td>2025-11-15 16:40</td>
+            <td>Bin 3</td>
+            <td>Sarah Smith</td>
+            <td>Hydrochloric Acid</td>
+            <td>4.1</td>
+            <td>1.6</td>
+            <td><span class="status cleaned">Cleaned</span></td>
+            <td><span class="alert-badge critical">Corrosive</span></td>
+            <td>Sample preparation</td>
+            <td class="action-cell"><button class="btn-edit" onclick="editRecord(this)">✏️</button><button class="btn-delete" onclick="deleteRecord(this)">🗑️</button></td>
+          </tr>
+          <tr>
+            <td>2025-11-15 14:05</td>
+            <td>Bin 1</td>
+            <td>Mike Johnson</td>
+            <td>Benzene</td>
+            <td>1.5</td>
+            <td>1.9</td>
+            <td><span class="status stored">Stored</span></td>
+            <td><span class="alert-badge critical">Toxic</span></td>
+            <td>Synthesis waste</td>
+            <td class="action-cell"><button class="btn-edit" onclick="editRecord(this)">✏️</button><button class="btn-delete" onclick="deleteRecord(this)">🗑️</button></td>
+          </tr>
+          <tr>
+            <td>2025-11-15 11:33</td>
+            <td>Bin 2</td>
+            <td>Emily Davis</td>
+            <td>Acetic Acid</td>
+            <td>2.7</td>
+            <td>2.4</td>
+            <td><span class="status processing">Processing</span></td>
+            <td><span class="alert-badge">None</span></td>
+            <td>Buffer solution</td>
+            <td class="action-cell"><button class="btn-edit" onclick="editRecord(this)">✏️</button><button class="btn-delete" onclick="deleteRecord(this)">🗑️</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pagination">
+      <button class="btn-secondary">← Previous</button>
+      <span class="page-info">Page 1 of 12 (94 records)</span>
+      <button class="btn-secondary">Next →</button>
+    </div>
+
+    <!-- Record Modal -->
+    <div id="recordModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modalTitle">Add New Record</h2>
+          <button class="modal-close" onclick="closeRecordModal()">×</button>
+        </div>
+        
+        <form class="record-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Time</label>
+              <input type="datetime-local" required />
+            </div>
+            <div class="form-group">
+              <label>Bin</label>
+              <select required>
+                <option>Select Bin</option>
+                <option>Bin 1</option>
+                <option>Bin 2</option>
+                <option>Bin 3</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>User</label>
+              <input type="text" placeholder="Enter user name" required />
+            </div>
+            <div class="form-group">
+              <label>Chemicals</label>
+              <input type="text" placeholder="e.g., Acetone, IPA" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Mass (kg)</label>
+              <input type="number" placeholder="0.00" step="0.01" required />
+            </div>
+            <div class="form-group">
+              <label>Volume (L)</label>
+              <input type="number" placeholder="0.00" step="0.01" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Status</label>
+              <select required>
+                <option>Select Status</option>
+                <option>Stored</option>
+                <option>Processing</option>
+                <option>Cleaned</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Alerts</label>
+              <select required>
+                <option>None</option>
+                <option>Warning</option>
+                <option>Critical</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label>Notes</label>
+              <textarea placeholder="Enter any additional notes..." rows="3"></textarea>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Save Record</button>
+            <button type="button" class="btn-secondary" onclick="closeRecordModal()">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </main>
 
   <footer class="footer">
     © 2025 WADEx. All rights reserved.
   </footer>
 
-  <script src="#"></script>
+  <script>
+    function openRecordModal() {
+      const modal = document.getElementById('recordModal');
+      const title = document.getElementById('modalTitle');
+      title.textContent = 'Add New Record';
+      document.querySelector('.record-form').reset();
+      modal.style.display = 'flex';
+    }
+
+    function closeRecordModal() {
+      const modal = document.getElementById('recordModal');
+      modal.style.display = 'none';
+    }
+
+    function editRecord(button) {
+      const row = button.closest('tr');
+      const cells = row.querySelectorAll('td');
+      
+      const modal = document.getElementById('recordModal');
+      const title = document.getElementById('modalTitle');
+      const form = document.querySelector('.record-form');
+      
+      title.textContent = 'Edit Record';
+      
+      form.querySelector('input[type="datetime-local"]').value = cells[0].textContent.trim();
+      form.querySelectorAll('select')[0].value = cells[1].textContent.trim();
+      form.querySelector('input[type="text"]').value = cells[2].textContent.trim();
+      form.querySelectorAll('input[type="text"]')[1].value = cells[3].textContent.trim();
+      form.querySelectorAll('input[type="number"]')[0].value = cells[4].textContent.trim();
+      form.querySelectorAll('input[type="number"]')[1].value = cells[5].textContent.trim();
+      form.querySelectorAll('select')[1].value = cells[6].textContent.trim();
+      form.querySelectorAll('select')[2].value = cells[7].textContent.trim();
+      form.querySelector('textarea').value = cells[8].textContent.trim();
+      
+      modal.style.display = 'flex';
+    }
+
+    function deleteRecord(button) {
+      if (confirm('Are you sure you want to delete this record?')) {
+        button.closest('tr').remove();
+      }
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('recordModal');
+      if (event.target === modal) {
+        closeRecordModal();
+      }
+    }
+
+    // Handle form submission
+    document.querySelector('.record-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Record saved! (Backend integration needed)');
+      closeRecordModal();
+    });
+  </script>
 </body>
 </html>
